@@ -17,4 +17,3 @@ public class AddCardButton : MonoBehaviour
         cardHand.AddCard(cardInfoList[randomCardIndex]);
     }
 }
-
