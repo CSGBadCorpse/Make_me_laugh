@@ -7,10 +7,13 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private int hpMax = 100;
     public int hpCur;
-    private CardHand cardHand;
+    [SerializeField] private CardHand cardHand;
+    
+    public static Player Instance{get;private set;}
 
     private void Awake()
     {
+        Instance = this;
         hpCur = hpMax;
     }
 
@@ -32,7 +35,7 @@ public class Player : MonoBehaviour
 
     public void UseCard(Card card)
     {
-        TakeDamage(card.GetComponent<CardInfo>().CardCost);
+        TakeDamage(card.cardInfo.CardCost);
         cardHand.UseCard(card);
     }
     
