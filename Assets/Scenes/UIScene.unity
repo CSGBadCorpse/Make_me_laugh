@@ -305,6 +305,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1670987352}
     m_Modifications:
+    - target: {fileID: 8880370678904729914, guid: 9a9859950b14ec14bb45b633df1144c2, type: 3}
+      propertyPath: m_Color.a
+      value: 0.69803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880370679254526679, guid: 9a9859950b14ec14bb45b633df1144c2, type: 3}
+      propertyPath: m_Color.a
+      value: 0.69803923
+      objectReference: {fileID: 0}
     - target: {fileID: 8880370680136078024, guid: 9a9859950b14ec14bb45b633df1144c2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -388,6 +396,10 @@ PrefabInstance:
     - target: {fileID: 8880370680136078024, guid: 9a9859950b14ec14bb45b633df1144c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880370680136078025, guid: 9a9859950b14ec14bb45b633df1144c2, type: 3}
+      propertyPath: isEnemy
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8880370680136078025, guid: 9a9859950b14ec14bb45b633df1144c2, type: 3}
       propertyPath: totalTime
@@ -636,6 +648,10 @@ PrefabInstance:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 1668884103}
+    - target: {fileID: 410350576671278011, guid: 8d5a3cb6c4cd7a84fb59bfcacb80cdbe, type: 3}
+      propertyPath: m_Color.a
+      value: 0.69803923
+      objectReference: {fileID: 0}
     - target: {fileID: 2962264883748464000, guid: 8d5a3cb6c4cd7a84fb59bfcacb80cdbe, type: 3}
       propertyPath: m_Name
       value: HealthBarEnemy
@@ -734,6 +750,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7028510018855961323, guid: 8d5a3cb6c4cd7a84fb59bfcacb80cdbe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605938813273343095, guid: 8d5a3cb6c4cd7a84fb59bfcacb80cdbe, type: 3}
+      propertyPath: m_Color.a
+      value: 0.69803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605938813273343095, guid: 8d5a3cb6c4cd7a84fb59bfcacb80cdbe, type: 3}
+      propertyPath: m_FillAmount
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1510,6 +1534,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1670987352}
     m_Modifications:
+    - target: {fileID: 410350576671278011, guid: bce3ba56e3b4c7343924ac80969d21db, type: 3}
+      propertyPath: m_Color.a
+      value: 0.69803923
+      objectReference: {fileID: 0}
     - target: {fileID: 2962264883748464000, guid: bce3ba56e3b4c7343924ac80969d21db, type: 3}
       propertyPath: m_Name
       value: HealthBar
@@ -1613,6 +1641,10 @@ PrefabInstance:
     - target: {fileID: 7028510018855961323, guid: bce3ba56e3b4c7343924ac80969d21db, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605938813273343095, guid: bce3ba56e3b4c7343924ac80969d21db, type: 3}
+      propertyPath: m_Color.a
+      value: 0.69803923
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bce3ba56e3b4c7343924ac80969d21db, type: 3}
@@ -1952,9 +1984,45 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1741588855488645101, guid: 63e46df8cad3f4d4e86ba5741355a361, type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 4558424252935312848, guid: 1703542e11e849f4381ed7bdf946e775, type: 3}
+    - target: {fileID: 1741588855488645101, guid: 63e46df8cad3f4d4e86ba5741355a361, type: 3}
       propertyPath: cardHand
       value: 
       objectReference: {fileID: 789632955}
+    - target: {fileID: 1741588855488645101, guid: 63e46df8cad3f4d4e86ba5741355a361, type: 3}
+      propertyPath: cardInGroup.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1741588855488645101, guid: 63e46df8cad3f4d4e86ba5741355a361, type: 3}
+      propertyPath: cardInfoList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1741588855488645101, guid: 63e46df8cad3f4d4e86ba5741355a361, type: 3}
+      propertyPath: cardInGroup.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2234ab5471b08dd41844590c46be5b04, type: 2}
+    - target: {fileID: 1741588855488645101, guid: 63e46df8cad3f4d4e86ba5741355a361, type: 3}
+      propertyPath: cardInGroup.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: e8cc63cd304e99d4684f938ab5b7580b, type: 2}
+    - target: {fileID: 1741588855488645101, guid: 63e46df8cad3f4d4e86ba5741355a361, type: 3}
+      propertyPath: cardInGroup.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1be1684b9ca478f44b6934a45729de9e, type: 2}
+    - target: {fileID: 1741588855488645101, guid: 63e46df8cad3f4d4e86ba5741355a361, type: 3}
+      propertyPath: cardInfoList.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2234ab5471b08dd41844590c46be5b04, type: 2}
+    - target: {fileID: 1741588855488645101, guid: 63e46df8cad3f4d4e86ba5741355a361, type: 3}
+      propertyPath: cardInfoList.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: e8cc63cd304e99d4684f938ab5b7580b, type: 2}
+    - target: {fileID: 1741588855488645101, guid: 63e46df8cad3f4d4e86ba5741355a361, type: 3}
+      propertyPath: cardInfoList.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1be1684b9ca478f44b6934a45729de9e, type: 2}
     - target: {fileID: 4782366367287949458, guid: 63e46df8cad3f4d4e86ba5741355a361, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1988,6 +2056,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1670987352}
     m_Modifications:
+    - target: {fileID: 8880370678904729914, guid: 9a9859950b14ec14bb45b633df1144c2, type: 3}
+      propertyPath: m_Color.a
+      value: 0.69803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880370679254526679, guid: 9a9859950b14ec14bb45b633df1144c2, type: 3}
+      propertyPath: m_Color.a
+      value: 0.69803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880370679254526679, guid: 9a9859950b14ec14bb45b633df1144c2, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8880370680136078024, guid: 9a9859950b14ec14bb45b633df1144c2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

@@ -140,4 +140,10 @@ public class CardHand : MonoBehaviour
         int cardCount = cardList.Count;
         return (float)index - ((float)cardCount-1f) / 2f;
     }
+
+    public List<GameObject> getCardList()
+    {
+
+        return cardList;
+    } 
 }

@@ -2,18 +2,21 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MainTurns : MonoBehaviour
 {
     // private Player playerInstance;
-    private Enemy enemyInstance;
+    // private Enemy enemyInstance;
     public static MainTurns Instance;
 
+    public static UnityEvent Win;
+    public static UnityEvent Lose;
     private void Awake()
     {
         Instance = this;
         // playerInstance = Player.Instance;
-        enemyInstance = Enemy.Instance;
+        // enemyInstance = Enemy.Instance;
     }
 
     // Start is called before the first frame update
@@ -26,6 +29,14 @@ public class MainTurns : MonoBehaviour
     void Update()
     {
         //random add card
+        if (Enemy.Instance.IsEnemyHappy())
+        {
+            Win?.Invoke();
+        }
+        else if(Player.Instance.IsPlayerSad()&&!Enemy.Instance.IsEnemyHappy())
+        {   
+            Lose?.Invoke();
+        }
     }
 
     public void ProcessEffect(Card card,bool isAll = false)
@@ -87,24 +98,25 @@ public class MainTurns : MonoBehaviour
                 Player.Instance.Heal(card.cardInfo.EffectValue);
                 break;
             case 8:
-                Player.Instance.UseCard(card,isAll);
+                Enemy.Instance.UseCard(card,isAll);
                 Player.Instance.TakeDamage(card.cardInfo.EffectValue);
                 break;
             case 9:
-                Player.Instance.UseCard(card,isAll);
-                if(Player.Instance.GetCardListLength()==0){
+                Enemy.Instance.UseCard(card,isAll);
+                if(Enemy.Instance.cardList.Count==0){
                     Player.Instance.TakeDamage(card.cardInfo.EffectValue);    
                 }
                 
                 break;
             case 10:
-                Player.Instance.UseCard(card,isAll);
+                Enemy.Instance.UseCard(card,isAll);
                 Player.Instance.GetCardFromIndex(0).isActive= false;
-                Player.Instance.Heal(card.cardInfo.EffectValue);
+                Enemy.Instance.Heal(card.cardInfo.EffectValue);
                 break;
 
 
 
         }
     }
+    
 }

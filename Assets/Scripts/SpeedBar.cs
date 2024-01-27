@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class SpeedBar : MonoBehaviour
 {
+    public bool isEnemy = false;
     private float timer = 0f;
     [SerializeField,Range(1,100)]public float drawCardTime = 7f;
 
@@ -37,7 +38,14 @@ public class SpeedBar : MonoBehaviour
         {
             timer = 0f;
             speedBarImage.fillAmount = 0f;
-            Player.Instance.DrawCard();
+            if (isEnemy)
+            {
+                Enemy.Instance.DrawCard();
+            }
+            else
+            {
+                Player.Instance.DrawCard();
+            }
         }
     }
 }
