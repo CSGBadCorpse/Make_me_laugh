@@ -52,18 +52,18 @@ public class MainTurns : MonoBehaviour
                     return;
                 }
                 Player.Instance.UseCard(card,isAll);
-                Player.Instance.Heal( card.cardInfo.EffectValue);
+                Enemy.Instance.Heal( card.cardInfo.EffectValue);
                 
                 
                 break;
             case 2:
                 Player.Instance.UseCard(card,isAll);
-                Player.Instance.Heal(card.cardInfo.EffectValue);
+                Enemy.Instance.Heal(card.cardInfo.EffectValue);
                 break;
             case 3:
                 Player.Instance.UseCard(card,isAll);
                 card.usedCount++;
-                Player.Instance.Heal(card.cardInfo.EffectValue+card.usedCount);
+                Enemy.Instance.Heal(card.cardInfo.EffectValue+card.usedCount);
                 break;
             case 4:
                 Player.Instance.UseCard(card,isAll);

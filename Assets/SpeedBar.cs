@@ -25,7 +25,7 @@ public class SpeedBar : MonoBehaviour
         {
             timer = 0f;
             speedBarImage.fillAmount = 0f;
-            // Player.Instance.DrawCard();
+            Player.Instance.DrawCard();
         }
     }
 }
