@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private int hpMax = 100;
     public int hpCur;
+    
+    public static Player Instance{get;private set;}
 
     public UnityEvent<int,int> onHealthChanged;
 
@@ -15,6 +17,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         hpCur = hpMax;
     }
 
@@ -38,7 +41,7 @@ public class Player : MonoBehaviour
 
     public void UseCard(Card card)
     {
-        TakeDamage(card.GetComponent<CardInfo>().CardCost);
+        TakeDamage(card.cardInfo.CardCost);
         cardHand.UseCard(card);
     }
     

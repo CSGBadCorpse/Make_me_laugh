@@ -6,10 +6,14 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private int hpMax = 100;
     public int hpCur;
-    private CardHand cardHand;
+    public CardHand cardHand;
+    
+    public static Enemy Instance{get;private set;}
+    
     // Start is called before the first frame update
     void Awake()
     {
+        Instance = this;
         hpCur = hpMax;
     }
     

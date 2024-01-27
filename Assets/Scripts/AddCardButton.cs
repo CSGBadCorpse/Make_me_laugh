@@ -12,6 +12,6 @@ public class AddCardButton : MonoBehaviour
     {
         //Random add a card to cardHand
         int randomCardIndex = Random.Range(0, cardInfoList.Count);
-        UIManager.Instance.playercardHand.AddCard(cardInfoList[randomCardIndex]);
+        UIManager.Instance.playerCardHand.AddCard(cardInfoList[randomCardIndex]);
     }
 }
