@@ -2,11 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private int hpMax = 100;
     public int hpCur;
+
+    public UnityEvent<int,int> onHealthChanged;
+
     private CardHand cardHand;
 
     private void Awake()
@@ -19,6 +23,7 @@ public class Player : MonoBehaviour
         if (hpCur > 0)
         {
             hpCur -= damage;
+            onHealthChanged?.Invoke(hpCur,hpMax);
         }
     }
 
@@ -27,6 +32,7 @@ public class Player : MonoBehaviour
         if (hpCur < hpMax)
         {
             hpCur += heal;
+            onHealthChanged?.Invoke(hpCur,hpMax);
         }
     }
 
@@ -43,7 +49,7 @@ public class Player : MonoBehaviour
 
     public Card GetCardFromIndex(int index)
     {
-        return GetCardFromIndex(index);
+        return cardHand.GetCardFromIndex(index);
 
     }
     public int GetCardListLength()

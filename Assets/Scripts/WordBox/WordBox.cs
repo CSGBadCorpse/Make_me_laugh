@@ -50,7 +50,7 @@ public class WordBox : MonoBehaviour
 
     public void GivenCardUsed(Card card)
     {
-        SetNewWord(card.cardInfo.CardFunnyWords);
+        SetNewWord(card.cardInfo.CardFunnyWords == "" ? "Use card: "+card.cardInfo.CardName+" !" : card.cardInfo.CardFunnyWords);
     }
     public void ClearWord()
     {

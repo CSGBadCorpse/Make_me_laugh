@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e2545a4bb1651a4393e52614271fe46, type: 3}
   m_Name: DamageCard
   m_EditorClassIdentifier: 
-  CardID: 1
+  CardID: -1
   CardName: DamageCard
   CardDescription: Just Do Damage
   CardFunnyWords: DDDDD
