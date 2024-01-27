@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
+        // Debug.Log(Screen.width + "x" + Screen.height);
         Instance = this;
         canvas = FindObjectOfType<Canvas>();
         // playerCardHand = FindObjectOfType<CardHand>();

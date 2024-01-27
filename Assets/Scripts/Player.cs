@@ -93,7 +93,7 @@ public class Player : MonoBehaviour
         {
             TakeDamage(card.cardInfo.CardCost);
         }
-        cardHand.UseCard(card);
+        // cardHand.UseCard(card);
         card.Use();
     }
     

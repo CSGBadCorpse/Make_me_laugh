@@ -7,6 +7,7 @@ public class SpeedBar : MonoBehaviour
 {
     private float timer = 0f;
     [SerializeField,Range(1,100)]public float drawCardTime = 7f;
+    [SerializeField]private bool isPlayer = false;
 
 
     public void SubDrawTime(float value)
@@ -37,7 +38,8 @@ public class SpeedBar : MonoBehaviour
         {
             timer = 0f;
             speedBarImage.fillAmount = 0f;
-            Player.Instance.DrawCard();
+            if(isPlayer)
+                Player.Instance.DrawCard();
         }
     }
 }
