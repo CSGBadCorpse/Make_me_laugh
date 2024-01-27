@@ -11,4 +11,5 @@ public class CardInfo : ScriptableObject
     public string CardDescription;
     public string CardFunnyWords;
     public int CardCost;
+    public bool IsActive;
 }
