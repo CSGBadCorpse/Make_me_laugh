@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class MainTurns : MonoBehaviour
 {
-    private Player playerInstance;
+    // private Player playerInstance;
     private Enemy enemyInstance;
     public static MainTurns Instance;
 
     private void Awake()
     {
         Instance = this;
-        playerInstance = Player.Instance;
+        // playerInstance = Player.Instance;
         enemyInstance = Enemy.Instance;
     }
 
@@ -25,10 +25,10 @@ public class MainTurns : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //random add card
     }
 
-    public void ProcessEffect(Card card)
+    public void ProcessEffect(Card card,bool isAll = false)
     {
         int id = card.cardInfo.CardID;
         
@@ -37,62 +37,69 @@ public class MainTurns : MonoBehaviour
             
             case 1:
                 
-                if (playerInstance.GetCardListLength() > 1 )
+                if (Player.Instance.GetCardListLength() > 1&& !isAll)
                 {
                     Debug.Log("不能使用");
                     card.canUsed = false;
+                }
+                else
+                {
+                    card.canUsed = true;
                 }
 
                 if (!card.CanUse())
                 {
                     return;
                 }
-                playerInstance.UseCard(card);
-                playerInstance.Heal( card.cardInfo.EffectValue);
+                Player.Instance.UseCard(card,isAll);
+                Player.Instance.Heal( card.cardInfo.EffectValue);
                 
                 
                 break;
             case 2:
-                playerInstance.UseCard(card);
-                playerInstance.Heal(card.cardInfo.EffectValue);
+                Player.Instance.UseCard(card,isAll);
+                Player.Instance.Heal(card.cardInfo.EffectValue);
                 break;
             case 3:
-                playerInstance.UseCard(card);
+                Player.Instance.UseCard(card,isAll);
                 card.usedCount++;
-                playerInstance.Heal(card.cardInfo.EffectValue+card.usedCount);
+                Player.Instance.Heal(card.cardInfo.EffectValue+card.usedCount);
                 break;
             case 4:
-                playerInstance.UseCard(card);
-                for (int i =0;i<playerInstance.GetCardListLength();i++)
+                Player.Instance.UseCard(card,isAll);
+                
+                for (int i = Player.Instance.GetCardListLength()-1;i>=0;i--)
                 {
-                    ProcessEffect(playerInstance.GetCardFromIndex(i));
+                    ProcessEffect(Player.Instance.GetCardFromIndex(i),true);
                 }
+            
                 break;
             case 5:
-                playerInstance.UseCard(card);
-                playerInstance.Heal(card.cardInfo.EffectValue);
+                Player.Instance.UseCard(card,isAll);
+                Player.Instance.Heal(card.cardInfo.EffectValue);
                 break;
             case 6:
+                Player.Instance.UseCard(card,isAll);
                 break;
             case 7:
-                playerInstance.UseCard(card);
-                playerInstance.Heal(card.cardInfo.EffectValue);
+                Player.Instance.UseCard(card,isAll);
+                Player.Instance.Heal(card.cardInfo.EffectValue);
                 break;
             case 8:
-                playerInstance.UseCard(card);
-                playerInstance.TakeDamage(card.cardInfo.EffectValue);
+                Player.Instance.UseCard(card,isAll);
+                Player.Instance.TakeDamage(card.cardInfo.EffectValue);
                 break;
             case 9:
-                playerInstance.UseCard(card);
-                if(playerInstance.GetCardListLength()==0){
-                    playerInstance.TakeDamage(card.cardInfo.EffectValue);    
+                Player.Instance.UseCard(card,isAll);
+                if(Player.Instance.GetCardListLength()==0){
+                    Player.Instance.TakeDamage(card.cardInfo.EffectValue);    
                 }
                 
                 break;
             case 10:
-                playerInstance.UseCard(card);
-                playerInstance.GetCardFromIndex(0).isActive= false;
-                playerInstance.Heal(card.cardInfo.EffectValue);
+                Player.Instance.UseCard(card,isAll);
+                Player.Instance.GetCardFromIndex(0).isActive= false;
+                Player.Instance.Heal(card.cardInfo.EffectValue);
                 break;
 
 

@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
         if (hpCur > 0)
         {
             hpCur -= damage;
+            if(hpCur<0) hpCur = 0;
             onHealthChanged?.Invoke(hpCur,hpMax);
         }
     }
@@ -33,6 +34,8 @@ public class Enemy : MonoBehaviour
         if (hpCur < hpMax)
         {
             hpCur += heal;
+            if(hpCur > hpMax) hpCur = hpMax;
+
             onHealthChanged?.Invoke(hpCur,hpMax);
         }
     }

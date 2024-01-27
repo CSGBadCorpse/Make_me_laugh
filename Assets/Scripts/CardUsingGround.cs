@@ -9,6 +9,6 @@ public class CardUsingGround : MonoBehaviour, IDropHandler
     {
         Card card = eventData.pointerDrag.GetComponent<Card>();
         MainTurns.Instance.ProcessEffect(card);
-        // bool isUsed = card.Use();
+        bool isUsed = card.Use();
     }
 }
