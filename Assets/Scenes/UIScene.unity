@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -206,6 +206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1010238822}
   - component: {fileID: 1010238821}
+  - component: {fileID: 1010238823}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -240,6 +241,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1010238823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010238820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd7ca0d7e824d97b7ffa30782933a29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  enemy: {fileID: 0}
 --- !u!224 &1101027339 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6668314782299272983, guid: 924f0352b7e5f9b4d84ed8bf0f4af837, type: 3}
@@ -544,6 +559,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1670987352}
     m_Modifications:
+    - target: {fileID: 316804083, guid: 4681605d3030f3744a0b03a00b78dd8d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 316804083, guid: 4681605d3030f3744a0b03a00b78dd8d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 316804083, guid: 4681605d3030f3744a0b03a00b78dd8d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 576909424, guid: 4681605d3030f3744a0b03a00b78dd8d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

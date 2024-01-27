@@ -17,3 +17,4 @@ MonoBehaviour:
   CardDescription: Just Do Damage
   CardFunnyWords: DDDDD
   CardCost: 2
+  EffectValue: 0
