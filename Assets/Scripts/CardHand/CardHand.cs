@@ -15,7 +15,8 @@ public class CardHand : MonoBehaviour
     [SerializeField]private float CardDifferentAngle = 10;
     [SerializeField]private float updateSpeed = 4;
     private List<GameObject> cardList = new List<GameObject>();
-    // Start is called before the first frame update
+    
+    [HideInInspector]public GameObject HoveredCard = null;
 
     public void AddCard(CardInfo cardInfo)
     {
@@ -96,6 +97,10 @@ public class CardHand : MonoBehaviour
         {
             for (int i = 0; i < cardList.Count&& i < DestinationList.Count; i++)
             {
+                if (cardList[i] == HoveredCard)
+                {
+                    continue;
+                }
                 RectTransform rectTransform = cardList[i].GetComponent<RectTransform>();
                 rectTransform.localPosition = Vector3.Lerp(rectTransform.localPosition,DestinationList[i],lerpTimer);
                 rectTransform.localRotation = Quaternion.Lerp(rectTransform.localRotation,RotationDestination[i],lerpTimer);
@@ -119,15 +124,15 @@ public class CardHand : MonoBehaviour
     }
     private float GetYPosition(int index)
     {
-        // return CardYPosition - Math.Abs(GetCardFloatIndexFromCenter(index)) * YHeight;
-        return CardYPosition + ((index % 2 == 0) ? YDifferentHeight : 0);
+        return CardYPosition - Math.Abs(GetCardFloatIndexFromCenter(index)) * YDifferentHeight;
+        // return CardYPosition + ((index % 2 == 0) ? YDifferentHeight : 0);
     }
     private float GetAngle(int index)
     {
-        // float cardIndexFromCenter = GetCardFloatIndexFromCenter(index);
-        // return CardAngle*cardIndexFromCenter;
+        float cardIndexFromCenter = GetCardFloatIndexFromCenter(index);
+        return CardDifferentAngle*cardIndexFromCenter;
         // return CardAngle * UnityEngine.Random.Range(-1, 1);
-        return 0;
+        // return 0;
     }
 
     private float GetCardFloatIndexFromCenter(int index)

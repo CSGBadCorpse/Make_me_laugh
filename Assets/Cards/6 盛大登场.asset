@@ -17,4 +17,4 @@ MonoBehaviour:
   CardDescription: "\u65F6\u95F4\u69FD\u4E0A\u9650-1\uFF0C\u6700\u4F4E\u4E3A1 "
   CardFunnyWords: This Card Is Not Finished
   CardCost: 10
-  EffectValue: 0
+  EffectValue: 1

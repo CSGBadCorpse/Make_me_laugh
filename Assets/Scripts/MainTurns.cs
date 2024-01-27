@@ -80,6 +80,7 @@ public class MainTurns : MonoBehaviour
                 break;
             case 6:
                 Player.Instance.UseCard(card,isAll);
+                UIManager.Instance.playerSpeedBar.SubDrawTime(card.cardInfo.EffectValue);
                 break;
             case 7:
                 Player.Instance.UseCard(card,isAll);

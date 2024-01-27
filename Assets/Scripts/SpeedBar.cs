@@ -6,7 +6,19 @@ using UnityEngine.UI;
 public class SpeedBar : MonoBehaviour
 {
     private float timer = 0f;
-    public float drawCardTime = 7f;
+    [SerializeField,Range(1,100)]public float drawCardTime = 7f;
+
+
+    public void SubDrawTime(float value)
+    {
+        if (timer < value) timer = 1f; // cannot be 0
+        else
+        timer -= value;
+    }
+    public void AddDrawTime(float value)
+    {
+        timer += value;
+    }
 
 
     private Image speedBarImage;

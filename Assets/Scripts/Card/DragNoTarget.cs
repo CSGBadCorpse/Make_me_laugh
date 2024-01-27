@@ -31,6 +31,9 @@ public class DragNoTarget : MonoBehaviour, IPointerClickHandler, IBeginDragHandl
                 // Debug.Log("按住鼠标左键");
                 dragging = true;
                 selectMode = false;
+
+                UIManager.Instance.playerCardHand.HoveredCard = gameObject;
+
                 //开始拖拽状态的预览
                 preView.DragPreview();
             }
@@ -44,6 +47,7 @@ public class DragNoTarget : MonoBehaviour, IPointerClickHandler, IBeginDragHandl
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        UIManager.Instance.playerCardHand.HoveredCard = null;
         // Debug.Log("松开鼠标左键");
         selectMode = true;
         EndThisDrag();

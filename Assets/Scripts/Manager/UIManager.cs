@@ -10,6 +10,9 @@ public class UIManager : MonoBehaviour
     public CardHand playerCardHand;
     public CardHand enemyCardHand;
 
+    public SpeedBar playerSpeedBar;
+    public SpeedBar enemySpeedBar;
+
     public WordBox wordBox{get;private set;}
 
     private void Awake()
