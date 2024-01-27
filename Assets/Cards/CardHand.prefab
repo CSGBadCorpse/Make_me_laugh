@@ -51,8 +51,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxCardCount: 13
   card: {fileID: 4558424252935312848, guid: 1703542e11e849f4381ed7bdf946e775, type: 3}
-  CardXSpacing: 50
-  CardYPosition: 0
+  CardXSpacing: 100
+  CardYPosition: 80
   YDifferentHeight: 100
   CardDifferentAngle: 10
   updateSpeed: 4
+  HoveredCard: {fileID: 0}

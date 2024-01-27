@@ -50,7 +50,10 @@ public class Card : MonoBehaviour
             Debug.Log("Use Card");
             OnUse?.Invoke(this);
             OnUse.RemoveAllListeners();
+            UIManager.Instance.playerCardHand.HoveredCard = null;
+            PreView.EnablePreview = true;
             Destroy(gameObject);
+            
             return true;
         }
         return false;

@@ -46,7 +46,14 @@ public class Player : MonoBehaviour
         if (hpCur > 0)
         {
             hpCur -= damage;
-            if(hpCur<0) hpCur = 0;
+            if(hpCur<=0)
+            {
+                hpCur = 0;
+                if(Enemy.Instance.hpCur==100)
+                    UIManager.Instance.GameWin();
+                else
+                    UIManager.Instance.GameOver();
+            }
 
             onHealthChanged?.Invoke(hpCur,hpMax);
         }
@@ -68,7 +75,7 @@ public class Player : MonoBehaviour
         {
             TakeDamage(card.cardInfo.CardCost);
         }
-        cardHand.UseCard(card);
+        // cardHand.UseCard(card);
         card.Use();
     }
     

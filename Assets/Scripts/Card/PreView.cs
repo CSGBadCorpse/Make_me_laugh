@@ -29,7 +29,6 @@ public class PreView : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void OnPointerEnter(PointerEventData eventData)
     {
         SaveCardSate();
-        // Debug.Log("Mouse Enter");
         if (EnablePreview)
             StartPreView();
     }
