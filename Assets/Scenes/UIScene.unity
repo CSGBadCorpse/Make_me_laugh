@@ -544,6 +544,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1670987352}
     m_Modifications:
+    - target: {fileID: 576909424, guid: 4681605d3030f3744a0b03a00b78dd8d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 576909424, guid: 4681605d3030f3744a0b03a00b78dd8d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1618005772, guid: 4681605d3030f3744a0b03a00b78dd8d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1056559459595635536, guid: 4681605d3030f3744a0b03a00b78dd8d, type: 3}
       propertyPath: m_Name
       value: WordSpeakBox

@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66f685fcd6a89a747bebe79d1bcd157d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxCardCount: 10
+  MaxCardCount: 13
   card: {fileID: 4558424252935312848, guid: 1703542e11e849f4381ed7bdf946e775, type: 3}
   CardXSpacing: 50
   CardYPosition: 0
