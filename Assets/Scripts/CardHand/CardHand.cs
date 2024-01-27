@@ -32,6 +32,16 @@ public class CardHand : MonoBehaviour
         UpdatePosition();
     }
 
+    public Card GetCardFromId(int i)
+    {
+        return cardList.Find(x=>x.GetComponent<Card>().cardInfo.CardID==i).GetComponent<Card>();
+    }
+
+    public Card GetCardFromIndex(int index)
+    {
+        return cardList[index].GetComponent<Card>();
+    }
+    
     public void UseCard(Card card)
     {
         if(cardList.Contains(card.gameObject))

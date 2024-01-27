@@ -9,6 +9,7 @@ public class Card : MonoBehaviour
 {
     public CardInfo cardInfo;
 
+    public int usedCount;
     public UnityEvent<Card> OnUse;
 
 
@@ -18,6 +19,8 @@ public class Card : MonoBehaviour
     private TextMeshProUGUI cardFunnyWords;
 
     int cardID;
+    public bool canUsed = true;
+    public bool isActive = true;
 
     private void Awake() {
         cardName = transform.Find("CardFace/CardName").GetComponent<TextMeshProUGUI>();
@@ -38,7 +41,7 @@ public class Card : MonoBehaviour
 
     public bool CanUse()
     {
-        return true;
+        return canUsed;
     }
     public bool Use()
     {

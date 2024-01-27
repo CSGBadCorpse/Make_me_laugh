@@ -7,14 +7,15 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance{get;private set;}
     public Canvas canvas{get;private set;}
-    public CardHand cardHand{get;private set;}
+    public CardHand playercardHand{get;private set;}
+    public CardHand enemyCardHand{get;private set;}
     public WordBox wordBox{get;private set;}
 
     private void Awake()
     {
         Instance = this;
         canvas = FindObjectOfType<Canvas>();
-        cardHand = FindObjectOfType<CardHand>();
+        playercardHand = FindObjectOfType<CardHand>();
         wordBox = FindObjectOfType<WordBox>();
     }
 }

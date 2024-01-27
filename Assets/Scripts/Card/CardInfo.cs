@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "CardInfo", menuName = "ScriptableObject/DefaultCardInfo")]
@@ -11,5 +12,5 @@ public class CardInfo : ScriptableObject
     public string CardDescription;
     public string CardFunnyWords;
     public int CardCost;
-    public bool IsActive;
+    public int EffectValue;
 }
