@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
@@ -8,13 +9,14 @@ public class Enemy : MonoBehaviour
     public int hpCur;
     public CardHand cardHand;
     
+    public UnityEvent<int,int> onHealthChanged;
     public static Enemy Instance{get;private set;}
     
     // Start is called before the first frame update
     void Awake()
     {
         Instance = this;
-        hpCur = hpMax;
+        // hpCur = hpMax;
     }
     
     public void TakeDamage(int damage)
@@ -22,6 +24,7 @@ public class Enemy : MonoBehaviour
         if (hpCur > 0)
         {
             hpCur -= damage;
+            onHealthChanged?.Invoke(hpCur,hpMax);
         }
     }
 
@@ -30,11 +33,13 @@ public class Enemy : MonoBehaviour
         if (hpCur < hpMax)
         {
             hpCur += heal;
+            onHealthChanged?.Invoke(hpCur,hpMax);
         }
     }
     public void UseCard(Card card)
     {
         TakeDamage(card.GetComponent<CardInfo>().CardCost);
-        cardHand.UseCard(card);
+        // cardHand.UseCard(card);
+        card.Use();
     }
 }

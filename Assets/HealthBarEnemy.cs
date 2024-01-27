@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBar : MonoBehaviour
+public class HealthBarEnemy : MonoBehaviour
 {
-    [SerializeField] private Player player;
+    [SerializeField] private Enemy enemy;
     private Image healthBarImage;
 
     private void Awake()
     {
-        healthBarImage = transform.Find("Health Bar").GetComponent<Image>();
-        player.onHealthChanged.AddListener(UpdateFillAmount);
+        healthBarImage = transform.Find("HealthBar").GetComponent<Image>();
+        enemy.onHealthChanged.AddListener(UpdateFillAmount);
     }
 
     private void OnDestroy() {
-        player.onHealthChanged.RemoveListener(UpdateFillAmount);
+        enemy.onHealthChanged.RemoveListener(UpdateFillAmount);
     }
 
     private void UpdateFillAmount(int hpCur, int hpMax)

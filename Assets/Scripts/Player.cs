@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        cardHand = UIManager.Instance.playerCardHand;
         hpCur = hpMax;
     }
 
@@ -42,7 +43,8 @@ public class Player : MonoBehaviour
     public void UseCard(Card card)
     {
         TakeDamage(card.cardInfo.CardCost);
-        cardHand.UseCard(card);
+        // cardHand.UseCard(card);
+        card.Use();
     }
     
     public Card GetCardFromId(int i)

@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour
     {
         Instance = this;
         canvas = FindObjectOfType<Canvas>();
-        playerCardHand = FindObjectOfType<CardHand>();
+        // playerCardHand = FindObjectOfType<CardHand>();
         wordBox = FindObjectOfType<WordBox>();
         // enemyCardHand = FindObjectOfType<CardHand>();
 
