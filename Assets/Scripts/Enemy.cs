@@ -34,7 +34,11 @@ public class Enemy : MonoBehaviour
         if (hpCur < hpMax)
         {
             hpCur += heal;
-            if(hpCur > hpMax) hpCur = hpMax;
+            if(hpCur > hpMax)
+            {
+                UIManager.Instance.GameWin();
+                hpCur = hpMax;
+            }
 
             onHealthChanged?.Invoke(hpCur,hpMax);
         }
