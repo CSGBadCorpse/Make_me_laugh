@@ -21,6 +21,9 @@ public class Player : MonoBehaviour
 
     private CardHand cardHand;
 
+    [SerializeField] private int startCardNum = 3;
+    public int HasDrawnNumber{get;private set;} = 0;
+
     private void Awake()
     {
         Instance = this;
@@ -31,6 +34,10 @@ public class Player : MonoBehaviour
         
         cardInGroup = new List<CardInfo>();
         InitCardGroupList();
+        for (int i = 0; i < startCardNum; i++)
+        {
+            DrawCard();
+        }
     }
 
     private void Update()
@@ -98,6 +105,7 @@ public class Player : MonoBehaviour
 
     public void DrawCard()
     {
+        HasDrawnNumber++;
         //Random add a card to cardHand
         int randomCardIndex = UnityEngine.Random.Range(0, cardInGroup.Count);
         

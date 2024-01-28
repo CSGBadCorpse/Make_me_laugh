@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 489, y: -163}
-  m_SizeDelta: {x: 831.6653, y: 345.2113}
+  m_AnchoredPosition: {x: 489, y: 16.9637}
+  m_SizeDelta: {x: 831.6653, y: 107.284}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1888043712983933176
 CanvasRenderer:
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -342.9661, y: 0, z: 221.40862, w: 0}
+  m_margin: {x: -342.9661, y: 0, z: 221.40862, w: 38.488342}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -170,8 +170,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 438, y: 71}
-  m_SizeDelta: {x: 831.6653, y: 345.2113}
+  m_AnchoredPosition: {x: 438, y: 123.93052}
+  m_SizeDelta: {x: 831.6653, y: 275.2327}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2065826444164899201
 CanvasRenderer:
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -342.9661, y: 0, z: 221.40862, w: 0}
+  m_margin: {x: -342.9661, y: 0, z: 221.40862, w: 103.21846}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -287,7 +287,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2065826445164207883
 RectTransform:
   m_ObjectHideFlags: 0

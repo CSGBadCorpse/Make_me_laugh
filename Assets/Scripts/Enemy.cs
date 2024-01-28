@@ -13,8 +13,9 @@ public class Enemy : MonoBehaviour
 
     public List<CardInfo> cardInGroup;//卡组里的牌
 
-    public List<Card> cardList = new List<Card>();//敌人手里的牌
+    // public List<Card> cardList = new List<Card>();//敌人手里的牌
     [SerializeField] private GameObject card;
+    [SerializeField] private Transform enemyHandTransform;
 
     
     float time;
@@ -26,16 +27,23 @@ public class Enemy : MonoBehaviour
     // public CardHand cardHand;
     
     public UnityEvent<int,int> onHealthChanged;
+    public CardHand cardHand;
+
     public static Enemy Instance{get;private set;}
     
     // Start is called before the first frame update
     void Awake()
     {
         Instance = this;
+        cardHand = UIManager.Instance.enemyCardHand;
         // hpCur = hpMax;
         time = Random.Range(3f,10f);
    
         InitCardGroupList();
+        for (int i = 0; i < 4; i++)
+        {
+            DrawCard();
+        }
     }
 
 
@@ -53,10 +61,10 @@ public class Enemy : MonoBehaviour
 
         if (time <= 0)
         {
-            if (cardList.Count >= 1)
+            if (cardHand.GetCardListLength() >= 1)
             {
-                index = Random.Range(0, cardList.Count - 1);
-                MainTurns.Instance.ProcessEffect(cardList[index]);    
+                index = Random.Range(0, cardHand.GetCardListLength() - 1);
+                MainTurns.Instance.ProcessEffect(cardHand.GetCardFromIndex(index));    
             }
             
             time = Random.Range(3f,10f);
@@ -96,11 +104,13 @@ public class Enemy : MonoBehaviour
         {
             TakeDamage(card.cardInfo.CardCost);
         }
-        // cardHand.UseCard(card);
-        if (cardList.Contains(card))
-        {
-            cardList.Remove(card);
-        }
+        Debug.Log("Enemy UseCard");
+        cardHand.UseCard(card,true);
+        UIManager.Instance.wordBox.SetNewWord("失业者：" + card.cardInfo.CardFunnyWords);
+        // if (cardList.Contains(card))
+        // {
+        //     cardList.Remove(card);
+        // }
     }
 
     public bool IsEnemyHappy()
@@ -118,13 +128,13 @@ public class Enemy : MonoBehaviour
             switch (cardInfoList[i].CardID)
             {
                 case 8 :
-                    count = 1;
+                    count = 10;
                     break;
                 case 9:
-                    count =1;
+                    count =10;
                     break;
                 case 10:
-                    count = 1;
+                    count = 10;
                     break;
             }
 
@@ -138,22 +148,21 @@ public class Enemy : MonoBehaviour
     {
         int randomCardIndex = UnityEngine.Random.Range(0, cardInGroup.Count-1);
 
-        Card cardIndex = Instantiate(card, Vector3.zero, Quaternion.identity).GetComponent<Card>();
-        cardIndex.cardInfo = cardInGroup[randomCardIndex];
-        cardIndex.ShowCard();
+        // Debug.Log("randomCardIndex:"+randomCardIndex);
+        UIManager.Instance.enemyCardHand.AddCard(cardInGroup[randomCardIndex],false);
         
         
-        cardList.Add(cardIndex);
         cardInGroup.Remove(cardInGroup[randomCardIndex]);
+
     }
     public void RegenerateCard()
     {
         InitCardGroupList();
-        if (cardList.Count > 0)
+        if (cardHand.GetCardListLength() > 0)
         {
-            foreach (var index in cardList)
+            foreach (var index in cardHand.getCardList())
             {
-                cardInGroup.Remove(index.cardInfo);
+                cardInGroup.Remove(index.GetComponent<Card>().cardInfo);
             }
         }
     }

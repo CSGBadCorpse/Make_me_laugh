@@ -6,6 +6,7 @@ using UnityEngine;
 public class CardHand : MonoBehaviour
 {
     [Header("CardHandProperty")]
+    [SerializeField]private bool isPlayer = true;
     [SerializeField]private int MaxCardCount = 10;
     [Header("CardInHandPresenting")]
     [SerializeField]private GameObject card;
@@ -18,23 +19,24 @@ public class CardHand : MonoBehaviour
     
     [HideInInspector]public GameObject HoveredCard = null;
 
-    public void AddCard(CardInfo cardInfo)
+    public void AddCard(CardInfo cardInfo, bool canDrag = true)
     {
         if(cardList.Count>=MaxCardCount)
         {
             Debug.Log("手牌已满");
             return;
         }
-        var new_card = CreateCard(cardInfo);
+        var new_card = CreateCard(cardInfo, canDrag);
         cardList.Add(new_card);
         // new_card.GetComponent<Card>().OnUse.AddListener((card)=>{UseCard(card);});
-        new_card.GetComponent<Card>().OnUse.AddListener(UseCard);;
-        new_card.GetComponent<Card>().OnUse.AddListener((card)=>{UIManager.Instance.wordBox.GivenCardUsed(card);});
+        new_card.GetComponent<Card>().OnUse.AddListener((x)=>{UseCard(x);});
+        new_card.GetComponent<Card>().OnUse.AddListener((card)=>{UIManager.Instance.wordBox.SetNewWord((isPlayer?"小丑：":"失业者：") + card.cardInfo.CardFunnyWords);});
         UpdatePosition();
     }
 
     public Card GetCardFromId(int i)
     {
+        // Debug.Log(i);
         return cardList.Find(x=>x.GetComponent<Card>().cardInfo.CardID==i).GetComponent<Card>();
     }
 
@@ -43,11 +45,13 @@ public class CardHand : MonoBehaviour
         return cardList[index].GetComponent<Card>();
     }
     
-    public void UseCard(Card card)
+    public void UseCard(Card card, bool needDestroy = false)
     {
         if(cardList.Contains(card.gameObject))
         {
             cardList.Remove(card.gameObject);
+            if(needDestroy)
+                Destroy(card.gameObject);
             UpdatePosition();
         }
     }
@@ -57,11 +61,15 @@ public class CardHand : MonoBehaviour
         return cardList.Count;
     }
 
-    private GameObject CreateCard(CardInfo cardInfo)
+    private GameObject CreateCard(CardInfo cardInfo, bool canDrag = true)
     {
         GameObject cardObj = Instantiate(card,Vector3.zero,Quaternion.identity);
         // cardObj.transform.SetParent(UIManager.Instance.canvas.transform);
         cardObj.transform.SetParent(transform);
+        if (!canDrag)
+        {
+            cardObj.GetComponent<DragNoTarget>().enabled = false; 
+        }
         RectTransform rectTransform = cardObj.GetComponent<RectTransform>();
         rectTransform.localPosition = CalcCardPosition(cardList.Count-1);
         rectTransform.localRotation = Quaternion.Euler(0, 0, -1*(GetAngle(cardList.Count-1)));

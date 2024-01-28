@@ -118,7 +118,7 @@ public class MainTurns : MonoBehaviour
                 break;
             case 7:
                 Player.Instance.UseCard(card,isAll);
-                Player.Instance.Heal(card.cardInfo.EffectValue);
+                Player.Instance.Heal(card.cardInfo.EffectValue * Player.Instance.HasDrawnNumber);
                 break;
             case 8:
                 Enemy.Instance.UseCard(card,isAll);
@@ -126,7 +126,7 @@ public class MainTurns : MonoBehaviour
                 break;
             case 9:
                 Enemy.Instance.UseCard(card,isAll);
-                if(Enemy.Instance.cardList.Count==0){
+                if(UIManager.Instance.playerCardHand.GetCardListLength()==0){
                     Player.Instance.TakeDamage(card.cardInfo.EffectValue);    
                 }
                 

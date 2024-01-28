@@ -26,7 +26,7 @@ public class WordBox : MonoBehaviour
         scrollbar = transform.Find("Scroll View/Scrollbar Vertical").GetComponent<Scrollbar>();
     }
     private void Start() {
-        text = "hahahahahahaha\n";
+        text = "闲言碎语\n";
     }
 
     private IEnumerator ScrollToBottom()

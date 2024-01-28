@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardID: 5
   CardName: "\u4E2D\u573A\u4F11\u606F"
-  CardDescription: "\u56DE\u590D5"
+  CardDescription: "\u56DE\u590D\u5DF1\u65B95\u5FC3\u60C5"
   CardFunnyWords: "\u4E00\u4E2A\u9ED1\u5F71\u6EDA\u8FDB\u4E86\u540E\u53F0"
   CardCost: 0
   EffectValue: 5
