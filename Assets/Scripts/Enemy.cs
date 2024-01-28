@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     
     float time;
     private int index;
+    private Card NextUseCard;
 
     [Header("PlayerInfo")]
     [SerializeField] private int hpMax = 100;
@@ -40,7 +41,7 @@ public class Enemy : MonoBehaviour
         time = Random.Range(3f,10f);
    
         InitCardGroupList();
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 1; i++)
         {
             DrawCard();
         }
@@ -54,23 +55,24 @@ public class Enemy : MonoBehaviour
             RegenerateCard();
         }
         
-        if (time > 0)
-        {
-            time -= Time.deltaTime;
-        }
+        // if (time > 0)
+        // {
+        //     time -= Time.deltaTime;
+        // }
 
-        if (time <= 0)
-        {
-            if (cardHand.GetCardListLength() >= 1)
-            {
-                index = Random.Range(0, cardHand.GetCardListLength() - 1);
-                MainTurns.Instance.ProcessEffect(cardHand.GetCardFromIndex(index));    
-            }
+        // if (time <= 0)
+        // {
+        //     if (cardHand.GetCardListLength() >= 1)
+        //     {
+        //         MainTurns.Instance.ProcessEffect(NextUseCard);    
+        //     }
             
-            time = Random.Range(3f,10f);
+        //     time = Random.Range(3f,10f);
+        //     index = Random.Range(0, cardHand.GetCardListLength() - 1);
+        //     NextUseCard = cardHand.GetCardFromIndex(index);
 
             
-        }
+        // }
         
     }
 
@@ -128,13 +130,13 @@ public class Enemy : MonoBehaviour
             switch (cardInfoList[i].CardID)
             {
                 case 8 :
-                    count = 10;
+                    count = 1;
                     break;
                 case 9:
-                    count =10;
+                    count =1;
                     break;
                 case 10:
-                    count = 10;
+                    count = 1;
                     break;
             }
 
@@ -146,14 +148,15 @@ public class Enemy : MonoBehaviour
     }
     public void DrawCard()
     {
+        if (cardHand.GetCardListLength() >= 1)
+        {
+            MainTurns.Instance.ProcessEffect(cardHand.GetCardFromIndex(0));  
+        }
         int randomCardIndex = UnityEngine.Random.Range(0, cardInGroup.Count-1);
 
         // Debug.Log("randomCardIndex:"+randomCardIndex);
         UIManager.Instance.enemyCardHand.AddCard(cardInGroup[randomCardIndex],false);
-        
-        
         cardInGroup.Remove(cardInGroup[randomCardIndex]);
-
     }
     public void RegenerateCard()
     {
