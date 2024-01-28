@@ -15,6 +15,6 @@ MonoBehaviour:
   CardID: 8
   CardName: "\u597D\u7D2F\u554A"
   CardDescription: "\u5FC3\u60C5\u635F\u593110"
-  CardFunnyWords: 
+  CardFunnyWords: "\u8FCE\u63A5\u65B0\u7684\u4E00\u5929\u662F\u4E00\u4EF6\u56F0\u96BE\u7684\u4E8B"
   CardCost: 0
   EffectValue: 10

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -38,13 +37,13 @@ public class UIManager : MonoBehaviour
     {
         Debug.Log("游戏胜利");
         gameWinPanel.SetActive(true);
-        Time.timeScale = 0;
+        Time.timeScale = 0f;
     }
 
     public void GameOver()
     {
         Debug.Log("游戏失败");
         gameOverPanel.SetActive(true);
-        Time.timeScale = 0;
+        Time.timeScale = 0f;
     }
 }

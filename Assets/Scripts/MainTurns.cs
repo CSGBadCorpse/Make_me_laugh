@@ -12,6 +12,10 @@ public class MainTurns : MonoBehaviour
 
     public static UnityEvent Win;
     public static UnityEvent Lose;
+
+    public GameObject winObject;
+    public GameObject failObject;
+    // private bool isPaused = false;
     private void Awake()
     {
         Instance = this;
@@ -32,12 +36,31 @@ public class MainTurns : MonoBehaviour
         if (Enemy.Instance.IsEnemyHappy())
         {
             Win?.Invoke();
+            winObject.SetActive(true);
+            // TogglePause();
         }
         else if(Player.Instance.IsPlayerSad()&&!Enemy.Instance.IsEnemyHappy())
         {   
             Lose?.Invoke();
+            failObject.SetActive(true);
+            // TogglePause();
         }
     }
+    // void TogglePause()
+    // {
+    //     // 切换暂停状态
+    //     isPaused = !isPaused;
+    //
+    //     // 根据暂停状态设置时间缩放
+    //     if (isPaused)
+    //     {
+    //         Time.timeScale = 0f; // 暂停时间
+    //     }
+    //     else
+    //     {
+    //         Time.timeScale = 1f; // 恢复正常时间流逝
+    //     }
+    // }
 
     public void ProcessEffect(Card card,bool isAll = false)
     {

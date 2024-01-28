@@ -8,5 +8,6 @@ public class NewStartButton : MonoBehaviour
     public void onClicked()
     {
         SceneManager.LoadScene("UIScene");
+        Time.timeScale = 1f;
     }
 }
