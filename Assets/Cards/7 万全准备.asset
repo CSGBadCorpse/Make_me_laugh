@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardID: 7
   CardName: "\u4E07\u5168\u51C6\u5907"
-  CardDescription: "\u6BCF\u62BD1\u5F20\u5361\u724C\uFF0C\u56DE\u590D\u89D2\u82723\u5FC3\u60C5\uFF08\u53EF\u53E0\u52A0\uFF09"
+  CardDescription: "\u6BCF\u62BD1\u5F20\u5361\u724C\uFF0C\u56DE\u590D\u89D2\u82722\u5FC3\u60C5\uFF08\u53EF\u53E0\u52A0\uFF09"
   CardFunnyWords: "\u6C14\u7403\uFF0CGet\uFF01\u76AE\u7403\uFF0CGet\uFF01\u5587\u53ED\uFF0CGet\uFF01\u54CE\uFF0C\u89C2\u4F17\u5462\uFF1F"
   CardCost: 15
-  EffectValue: 3
+  EffectValue: 2

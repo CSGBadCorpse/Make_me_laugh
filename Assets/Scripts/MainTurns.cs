@@ -15,6 +15,10 @@ public class MainTurns : MonoBehaviour
 
     public GameObject winObject;
     public GameObject failObject;
+
+    private int card9failCount = 1;
+
+    private int card3UsedCount = 0;
     // private bool isPaused = false;
     private void Awake()
     {
@@ -96,8 +100,12 @@ public class MainTurns : MonoBehaviour
                 break;
             case 3:
                 Player.Instance.UseCard(card,isAll);
-                card.usedCount++;
-                Enemy.Instance.Heal(card.cardInfo.EffectValue+card.usedCount);
+                if (!isAll)
+                {
+                    card3UsedCount++;
+                    
+                }
+                Enemy.Instance.Heal(card.cardInfo.EffectValue+card3UsedCount);
                 break;
             case 4:
                 Player.Instance.UseCard(card,isAll);
@@ -127,7 +135,11 @@ public class MainTurns : MonoBehaviour
             case 9:
                 Enemy.Instance.UseCard(card,isAll);
                 if(UIManager.Instance.playerCardHand.GetCardListLength()==0){
-                    Player.Instance.TakeDamage(card.cardInfo.EffectValue);    
+                    Player.Instance.TakeDamage(card.cardInfo.EffectValue*card9failCount);    
+                }
+                else
+                {
+                    card9failCount++;
                 }
                 
                 break;
